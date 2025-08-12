@@ -1,239 +1,372 @@
-# 🚀 E-commerce B2B - Sistema de Testes
+# 🛍️ E-commerce B2B - Sistema Completo de QA
 
-## 📋 Visão Geral
+> **Sistema educacional completo para práticas de Quality Assurance com testes manuais e automatizados**
 
-Sistema simples de e-commerce B2B desenvolvido para demonstrar práticas de QA, incluindo testes manuais e automatizados.
+[![Tests](https://img.shields.io/badge/tests-48%2F48%20passing-brightgreen)](/) 
+[![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](/)
+[![Node.js](https://img.shields.io/badge/node.js-v22.15.0-green)](/)
+[![Cypress](https://img.shields.io/badge/cypress-13.17.0-blue)](/)
 
-## 🛠️ Tecnologias Utilizadas
+---
 
-- **Frontend**: HTML, CSS, JavaScript vanilla
-- **Backend**: Node.js + Express
-- **Banco de Dados**: SQLite (em memória)
-- **Testes E2E**: Cypress
-- **Autenticação**: JWT + bcrypt
+## 🚀 **Início Rápido**
 
-## ⚡ Início Rápido
-
-### 1. Instalação
-
+### 1️⃣ **Clone e Instale**
 ```bash
-# Instalar dependências
+git clone https://github.com/Rychardsson/b2b-ecommerce-qa-automation.git
+cd b2b-ecommerce-qa-automation
 npm install
 ```
 
-### 2. Iniciar o Sistema
-
+### 2️⃣ **Execute o Sistema**
 ```bash
-# Modo desenvolvimento (com auto-reload)
-npm run dev
-
-# Ou modo produção
 npm start
+# 🌐 Acesse: http://localhost:3000
 ```
 
-### 3. Acessar a Aplicação
+### 3️⃣ **Faça Login**
+```
+📧 Email: admin@empresa.com
+🔑 Senha: 123456
+```
 
-- **URL**: http://localhost:3000
-- **Login teste**: admin@empresa.com
-- **Senha teste**: 123456
-
-### 4. Executar Testes Automatizados
-
+### 4️⃣ **Execute os Testes**
 ```bash
-# Interface visual do Cypress
+# Interface visual
 npm test
 
 # Modo headless (CI/CD)
 npm run test:headless
 ```
 
-## 🎯 Funcionalidades Implementadas
+---
 
-### ✅ Funcionais
+## 📋 **Visão Geral**
 
-- [x] Login/Logout com validação
-- [x] Catálogo de produtos com busca
-- [x] Carrinho de compras persistente
-- [x] Checkout com simulação de processamento
-- [x] Gestão de estoque (produtos fora de estoque)
-- [x] API REST completa
+Este projeto é um **e-commerce B2B completo** desenvolvido especificamente para demonstrar e praticar:
 
-### ✅ Técnicas
-
-- [x] Autenticação JWT
-- [x] Validação de entrada
-- [x] Tratamento de erros
-- [x] Storage local
-- [x] Interface responsiva
-
-## 🧪 Estratégia de Testes
-
-### 📝 Testes Manuais
-
-Localizados em `/testes-manuais/`:
-
-- **casos-de-teste.md**: 16 casos de teste detalhados
-- **template-bugs.md**: Templates para registro de bugs
-
-### 🤖 Testes Automatizados
-
-Localizados em `/cypress/e2e/`:
-
-- **login.cy.js**: Testes de autenticação
-- **produtos.cy.js**: Testes do catálogo
-- **carrinho.cy.js**: Testes do carrinho
-- **checkout.cy.js**: Testes de finalização
-- **api.cy.js**: Testes de API e performance
-
-## 🎯 Cenários Especiais Implementados
-
-### ❌ Cenários de Erro
-
-1. **Login inválido**: Credenciais incorretas
-2. **Produto fora de estoque**: Monitor 24" sem estoque
-3. **Carrinho vazio**: Checkout bloqueado
-4. **Erro de rede**: Simulação de falhas de conexão
-5. **Timeout**: Processamento lento simulado
-
-### ⚡ Testes de Performance
-
-- Login < 1 segundo
-- Carregamento de produtos < 500ms
-- Busca instantânea
-- Checkout com timeout simulado (1s)
-
-### 🔒 Testes de Segurança
-
-- Validação contra SQL injection
-- Sanitização de entrada
-- Autenticação obrigatória
-
-## 📊 Dados de Teste
-
-### 👤 Usuários
-
-| Email             | Senha  | Empresa       |
-| ----------------- | ------ | ------------- |
-| admin@empresa.com | 123456 | Empresa Teste |
-
-### 🛍️ Produtos
-
-| Nome               | Preço       | Estoque | Categoria   |
-| ------------------ | ----------- | ------- | ----------- |
-| Notebook Dell      | R$ 2.500,00 | 10      | Informática |
-| Mouse Logitech     | R$ 150,00   | 50      | Informática |
-| Cadeira Ergonômica | R$ 800,00   | 5       | Móveis      |
-| Mesa de Escritório | R$ 1.200,00 | 3       | Móveis      |
-| Monitor 24"        | R$ 900,00   | 0       | Informática |
-
-## 🐛 Gestão de Bugs
-
-### Ferramentas Recomendadas
-
-- **Trello**: Board gratuito para tracking
-- **Jira**: Para ambientes profissionais
-- **GitHub Issues**: Para projetos open source
-
-### Labels Sugeridas
-
-- 🔴 CRÍTICO | 🟠 ALTO | 🟡 MÉDIO | 🟢 BAIXO
-- 🔐 LOGIN | 🛍️ PRODUTOS | 🛒 CARRINHO | 💳 CHECKOUT
-- 📋 NOVO | 👀 EM ANÁLISE | 🔧 DESENVOLVIMENTO | ✅ FECHADO
-
-## 📈 Métricas e Relatórios
-
-### Cobertura de Testes
-
-- **Funcionalidades**: 100% cobertas
-- **Casos de uso**: 16 cenários manuais
-- **Testes E2E**: 25+ testes automatizados
-- **Testes de API**: 15+ endpoints testados
-
-### Tipos de Teste
-
-- **Funcionais**: Login, CRUD, Fluxos
-- **Usabilidade**: Interface, Responsividade
-- **Performance**: Tempo de resposta
-- **Segurança**: Validação, Autenticação
-- **Regressão**: Fluxo completo
-
-## 🔧 Comandos Úteis
-
-```bash
-# Desenvolvimento
-npm run dev              # Servidor com auto-reload
-npm start               # Servidor produção
-
-# Testes
-npm test                # Cypress interface
-npm run test:headless   # Cypress headless
-node server.js          # Apenas backend
-
-# Debug
-# Abrir DevTools -> Application -> Local Storage
-# Verificar tokens JWT e carrinho
-```
-
-## 🚨 Cenários de Falha Comum
-
-### 1. Token Expirado
-
-**Sintoma**: Redirecionamento inesperado para login
-**Solução**: Implementar refresh automático
-
-### 2. Produto Sem Estoque
-
-**Sintoma**: Botão "Indisponível" desabilitado
-**Comportamento**: Esperado - não é bug
-
-### 3. Carrinho Vazio no Checkout
-
-**Sintoma**: Botão checkout desabilitado
-**Comportamento**: Esperado - validação funcional
-
-### 4. Erro de Conexão
-
-**Sintoma**: Mensagens "Erro de conexão"
-**Teste**: Desconectar internet e tentar operações
-
-## 📝 Próximos Passos
-
-### Melhorias Sugeridas
-
-1. **Persistência real**: Migrar para PostgreSQL
-2. **Autenticação avançada**: OAuth, 2FA
-3. **Relatórios**: Dashboard de vendas
-4. **Notificações**: Email, Push
-5. **Mobile**: App React Native
-6. **CI/CD**: GitHub Actions
-
-### Testes Adicionais
-
-1. **Acessibilidade**: WCAG compliance
-2. **Cross-browser**: Safari, Firefox
-3. **Mobile**: Testes em dispositivos
-4. **Load testing**: JMeter, K6
-5. **Security**: OWASP Top 10
-
-## 🤝 Contribuição
-
-Para contribuir com o projeto:
-
-1. Fork o repositório
-2. Crie uma branch para sua feature
-3. Execute os testes
-4. Faça o commit das mudanças
-5. Abra um Pull Request
-
-## 📞 Suporte
-
-Para dúvidas ou problemas:
-
-- Abra uma issue no GitHub
-- Verifique os logs do console
-- Execute os testes para validar o ambiente
+✅ **Testes Manuais** - 16 casos de teste documentados  
+✅ **Testes Automatizados** - 48 testes E2E com Cypress  
+✅ **Testes de API** - 18 testes de endpoints REST  
+✅ **Cenários de Erro** - Simulação de falhas reais  
+✅ **Gestão de Bugs** - Templates e workflows  
 
 ---
 
-**Desenvolvido para fins educacionais de QA**  
-Sistema completo de e-commerce B2B com foco em testes manuais e automatizados.
+## 🛠️ **Stack Tecnológica**
+
+| Categoria | Tecnologia | Versão |
+|-----------|------------|--------|
+| **Frontend** | HTML5, CSS3, JavaScript ES6 | Vanilla |
+| **Backend** | Node.js + Express | 4.18.2 |
+| **Database** | SQLite | Em memória |
+| **Auth** | JWT + bcrypt | - |
+| **Testing** | Cypress | 13.17.0 |
+| **QA Tools** | Manual Testing + Bug Templates | - |
+
+---
+
+## 🎯 **Funcionalidades Testadas**
+
+### 🔐 **Autenticação**
+- [x] Login com credenciais válidas/inválidas
+- [x] Logout e limpeza de sessão
+- [x] Validação de campos obrigatórios
+- [x] Tratamento de erros de conexão
+
+### 🛍️ **Catálogo de Produtos**
+- [x] Exibição de 5 produtos de teste
+- [x] Busca por nome e categoria
+- [x] Filtros e resultados vazios
+- [x] Produtos fora de estoque (Monitor 24")
+
+### 🛒 **Carrinho de Compras**
+- [x] Adicionar/remover produtos
+- [x] Cálculo automático de totais
+- [x] Persistência no localStorage
+- [x] Validações de estoque
+
+### 💳 **Checkout**
+- [x] Finalização de pedidos
+- [x] Simulação de processamento (1s)
+- [x] Validação de carrinho vazio
+- [x] Tratamento de erros de rede
+
+---
+
+## 🧪 **Estratégia de Testes**
+
+### 📝 **Testes Manuais** (`/testes-manuais/`)
+
+| Arquivo | Descrição | Casos |
+|---------|-----------|-------|
+| `casos-de-teste.md` | Casos detalhados por funcionalidade | 16 |
+| `template-bugs.md` | Templates para registro de bugs | - |
+
+**Tipos de teste cobertos:**
+- ✅ Funcionais (login, CRUD, fluxos)
+- ✅ Usabilidade (interface, responsividade)  
+- ✅ Regressão (fluxo completo)
+- ✅ Exploratórios (cenários não mapeados)
+
+### 🤖 **Testes Automatizados** (`/cypress/e2e/`)
+
+| Arquivo | Funcionalidade | Testes |
+|---------|----------------|--------|
+| `login.cy.js` | Autenticação | 5 |
+| `produtos.cy.js` | Catálogo | 8 |
+| `carrinho.cy.js` | Carrinho | 10 |
+| `checkout.cy.js` | Finalização | 7 |
+| `api.cy.js` | API REST | 18 |
+| **Total** | **100% Cobertura** | **48** |
+
+---
+
+## 🎪 **Cenários Especiais**
+
+### ❌ **Testes de Erro**
+1. **Login Inválido** → Mensagens de erro apropriadas
+2. **Produto Sem Estoque** → Botão desabilitado e aviso visual
+3. **Carrinho Vazio** → Checkout bloqueado
+4. **Falha de Rede** → Timeout e recovery
+5. **SQL Injection** → Proteção contra ataques
+
+### ⚡ **Testes de Performance**
+- 🎯 **Login**: < 1 segundo
+- 🎯 **API Products**: < 500ms  
+- 🎯 **Busca**: Instantânea
+- 🎯 **Checkout**: 1s (simulação)
+
+### 🔒 **Testes de Segurança**
+- ✅ Validação de entrada
+- ✅ Proteção SQL injection
+- ✅ Autenticação obrigatória
+- ✅ Sanitização de dados
+
+---
+
+## 📊 **Dados de Teste**
+
+### 👤 **Usuário de Teste**
+```json
+{
+  "email": "admin@empresa.com",
+  "password": "123456",
+  "company": "Empresa Teste"
+}
+```
+
+### 🛍️ **Produtos Disponíveis**
+| Produto | Preço | Estoque | Status |
+|---------|-------|---------|--------|
+| Notebook Dell | R$ 2.500,00 | 10 | ✅ Disponível |
+| Mouse Logitech | R$ 150,00 | 50 | ✅ Disponível |
+| Cadeira Ergonômica | R$ 800,00 | 5 | ✅ Disponível |
+| Mesa de Escritório | R$ 1.200,00 | 3 | ✅ Disponível |
+| Monitor 24" | R$ 900,00 | 0 | ❌ **Sem Estoque** |
+
+---
+
+## 🐛 **Gestão de Bugs**
+
+### 🏷️ **Sistema de Labels**
+
+**Por Severidade:**
+- 🔴 **CRÍTICO** - Sistema inoperante
+- 🟠 **ALTO** - Funcionalidade principal quebrada  
+- 🟡 **MÉDIO** - Problema funcional menor
+- 🟢 **BAIXO** - Cosmético/Melhoria
+
+**Por Componente:**
+- 🔐 **LOGIN** - Autenticação
+- 🛍️ **PRODUTOS** - Catálogo  
+- 🛒 **CARRINHO** - Compras
+- 💳 **CHECKOUT** - Finalização
+
+**Por Status:**
+- 📋 **NOVO** → 👀 **EM ANÁLISE** → 🔧 **DESENVOLVIMENTO** → ✅ **FECHADO**
+
+### 🔧 **Ferramentas Recomendadas**
+- **Trello** - Board gratuito para tracking
+- **Jira** - Ambiente profissional
+- **GitHub Issues** - Projetos open source
+
+---
+
+## 📈 **Métricas Atuais**
+
+```
+🎯 Cobertura de Testes: 100%
+📝 Casos Manuais: 16
+🤖 Testes Automatizados: 48
+🔌 Endpoints API: 18
+⚡ Performance: ✅ Todos < 1s
+🔒 Segurança: ✅ Validado
+```
+
+### 📊 **Distribuição de Testes**
+```
+Login:     5 testes (10%)
+Produtos:  8 testes (17%)
+Carrinho: 10 testes (21%)
+Checkout:  7 testes (15%)
+API:      18 testes (37%)
+```
+
+---
+
+## 🎬 **Como Demonstrar**
+
+### 🔄 **Fluxo Básico de Sucesso**
+1. **Login** → admin@empresa.com / 123456
+2. **Buscar** → "notebook" ou "informática"
+3. **Adicionar** → Notebook + Mouse ao carrinho
+4. **Checkout** → Finalizar pedido (aguardar 1s)
+5. **Logout** → Sair do sistema
+
+### ❌ **Cenários de Erro para Demonstrar**
+1. **Login Inválido** → user@wrong.com / wrongpass
+2. **Produto Sem Estoque** → Tentar adicionar Monitor 24"
+3. **Checkout Vazio** → Tentar finalizar sem produtos
+4. **Busca Vazia** → Procurar "produtoinexistente"
+
+---
+
+## 🔧 **Comandos Disponíveis**
+
+```bash
+# 🚀 Desenvolvimento
+npm start                    # Servidor produção
+npm run dev                  # Servidor com nodemon
+
+# 🧪 Testes
+npm test                     # Cypress interface
+npm run test:headless        # Cypress CI/CD
+npx cypress run --spec "arquivo.cy.js"  # Teste específico
+
+# 🔍 Debug
+node server.js               # Apenas backend
+# DevTools → Application → Local Storage (verificar token/carrinho)
+```
+
+---
+
+## 🚨 **Troubleshooting**
+
+### ❗ **Problemas Comuns**
+
+| Problema | Causa | Solução |
+|----------|-------|---------|
+| Porta 3000 ocupada | Servidor já rodando | `taskkill /f /im node.exe` |
+| Testes falhando | Cache/estado | `cy.clearLocalStorage()` |
+| Token expirado | Sessão perdida | Fazer logout/login |
+| Carrinho vazio após reload | localStorage limpo | Comportamento normal |
+
+### 🔧 **Validações de Ambiente**
+```bash
+# Verificar versões
+node --version    # v22.15.0+
+npm --version     # 10.0.0+
+npx cypress --version  # 13.17.0+
+
+# Verificar servidor
+curl http://localhost:3000/api/products
+```
+
+---
+
+## 📚 **Recursos Educacionais**
+
+### 📖 **Documentação Incluída**
+- ✅ Casos de teste manuais detalhados
+- ✅ Templates de bug report
+- ✅ Comandos customizados Cypress
+- ✅ Estratégia de testes por funcionalidade
+- ✅ Métricas e relatórios
+
+### 🎓 **Conceitos Demonstrados**
+- **Test-Driven Development** (TDD)
+- **Behavior-Driven Development** (BDD)  
+- **Page Object Model** (commands.js)
+- **Test Data Management**
+- **CI/CD Ready Tests**
+
+---
+
+## 📈 **Próximas Evoluções**
+
+### 🚀 **Melhorias Técnicas**
+- [ ] Database real (PostgreSQL)
+- [ ] Autenticação OAuth 2.0
+- [ ] Dashboard de métricas
+- [ ] Notificações em tempo real
+- [ ] App mobile React Native
+
+### 🧪 **Expansão de Testes**
+- [ ] Testes de acessibilidade (WCAG)
+- [ ] Cross-browser (Safari, Firefox)
+- [ ] Mobile testing (dispositivos)
+- [ ] Load testing (JMeter)
+- [ ] Security testing (OWASP)
+
+### 🔄 **DevOps**
+- [ ] GitHub Actions CI/CD
+- [ ] Docker containerization
+- [ ] Ambiente staging
+- [ ] Monitoring (Prometheus)
+- [ ] Logs centralizados
+
+---
+
+## 🤝 **Contribuição**
+
+1. **Fork** o repositório
+2. **Clone** sua fork
+3. **Crie** uma branch (`feature/nova-funcionalidade`)
+4. **Execute** os testes (`npm run test:headless`)
+5. **Commit** suas mudanças
+6. **Push** para a branch
+7. **Abra** um Pull Request
+
+### 📏 **Padrões de Commit**
+```
+feat: nova funcionalidade
+fix: correção de bug  
+test: adição/modificação de testes
+docs: atualização de documentação
+refactor: refatoração de código
+```
+
+---
+
+## 📞 **Suporte**
+
+### 💬 **Canais de Ajuda**
+- 🐛 **Issues**: Para bugs e problemas
+- 💡 **Discussions**: Para ideias e dúvidas
+- 📧 **Email**: Para suporte direto
+- 📚 **Wiki**: Documentação extendida
+
+### 🔍 **Auto-Diagnóstico**
+1. ✅ Servidor rodando na porta 3000?
+2. ✅ Login funcionando?
+3. ✅ Testes passando?
+4. ✅ Console sem erros?
+
+---
+
+## 📄 **Licença**
+
+**MIT License** - Livre para uso educacional e comercial.
+
+---
+
+## 🏆 **Créditos**
+
+**Desenvolvido para fins educacionais de Quality Assurance**
+
+> Sistema completo demonstrando as melhores práticas de testing manual e automatizado em um ambiente real de e-commerce B2B.
+
+---
+
+**🎯 Ready to test? Start with `npm start` and happy testing! 🚀**
