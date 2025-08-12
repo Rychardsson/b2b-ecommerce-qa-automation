@@ -1,9 +1,11 @@
 # 🚀 E-commerce B2B - Sistema de Testes
 
 ## 📋 Visão Geral
+
 Sistema simples de e-commerce B2B desenvolvido para demonstrar práticas de QA, incluindo testes manuais e automatizados.
 
 ## 🛠️ Tecnologias Utilizadas
+
 - **Frontend**: HTML, CSS, JavaScript vanilla
 - **Backend**: Node.js + Express
 - **Banco de Dados**: SQLite (em memória)
@@ -13,12 +15,14 @@ Sistema simples de e-commerce B2B desenvolvido para demonstrar práticas de QA, 
 ## ⚡ Início Rápido
 
 ### 1. Instalação
+
 ```bash
 # Instalar dependências
 npm install
 ```
 
 ### 2. Iniciar o Sistema
+
 ```bash
 # Modo desenvolvimento (com auto-reload)
 npm run dev
@@ -28,11 +32,13 @@ npm start
 ```
 
 ### 3. Acessar a Aplicação
+
 - **URL**: http://localhost:3000
 - **Login teste**: admin@empresa.com
 - **Senha teste**: 123456
 
 ### 4. Executar Testes Automatizados
+
 ```bash
 # Interface visual do Cypress
 npm test
@@ -44,6 +50,7 @@ npm run test:headless
 ## 🎯 Funcionalidades Implementadas
 
 ### ✅ Funcionais
+
 - [x] Login/Logout com validação
 - [x] Catálogo de produtos com busca
 - [x] Carrinho de compras persistente
@@ -52,6 +59,7 @@ npm run test:headless
 - [x] API REST completa
 
 ### ✅ Técnicas
+
 - [x] Autenticação JWT
 - [x] Validação de entrada
 - [x] Tratamento de erros
@@ -61,12 +69,16 @@ npm run test:headless
 ## 🧪 Estratégia de Testes
 
 ### 📝 Testes Manuais
+
 Localizados em `/testes-manuais/`:
+
 - **casos-de-teste.md**: 16 casos de teste detalhados
 - **template-bugs.md**: Templates para registro de bugs
 
 ### 🤖 Testes Automatizados
+
 Localizados em `/cypress/e2e/`:
+
 - **login.cy.js**: Testes de autenticação
 - **produtos.cy.js**: Testes do catálogo
 - **carrinho.cy.js**: Testes do carrinho
@@ -76,6 +88,7 @@ Localizados em `/cypress/e2e/`:
 ## 🎯 Cenários Especiais Implementados
 
 ### ❌ Cenários de Erro
+
 1. **Login inválido**: Credenciais incorretas
 2. **Produto fora de estoque**: Monitor 24" sem estoque
 3. **Carrinho vazio**: Checkout bloqueado
@@ -83,12 +96,14 @@ Localizados em `/cypress/e2e/`:
 5. **Timeout**: Processamento lento simulado
 
 ### ⚡ Testes de Performance
+
 - Login < 1 segundo
 - Carregamento de produtos < 500ms
 - Busca instantânea
 - Checkout com timeout simulado (1s)
 
 ### 🔒 Testes de Segurança
+
 - Validação contra SQL injection
 - Sanitização de entrada
 - Autenticação obrigatória
@@ -96,27 +111,31 @@ Localizados em `/cypress/e2e/`:
 ## 📊 Dados de Teste
 
 ### 👤 Usuários
-| Email | Senha | Empresa |
-|---|---|---|
+
+| Email             | Senha  | Empresa       |
+| ----------------- | ------ | ------------- |
 | admin@empresa.com | 123456 | Empresa Teste |
 
 ### 🛍️ Produtos
-| Nome | Preço | Estoque | Categoria |
-|---|---|---|---|
-| Notebook Dell | R$ 2.500,00 | 10 | Informática |
-| Mouse Logitech | R$ 150,00 | 50 | Informática |
-| Cadeira Ergonômica | R$ 800,00 | 5 | Móveis |
-| Mesa de Escritório | R$ 1.200,00 | 3 | Móveis |
-| Monitor 24" | R$ 900,00 | 0 | Informática |
+
+| Nome               | Preço       | Estoque | Categoria   |
+| ------------------ | ----------- | ------- | ----------- |
+| Notebook Dell      | R$ 2.500,00 | 10      | Informática |
+| Mouse Logitech     | R$ 150,00   | 50      | Informática |
+| Cadeira Ergonômica | R$ 800,00   | 5       | Móveis      |
+| Mesa de Escritório | R$ 1.200,00 | 3       | Móveis      |
+| Monitor 24"        | R$ 900,00   | 0       | Informática |
 
 ## 🐛 Gestão de Bugs
 
 ### Ferramentas Recomendadas
+
 - **Trello**: Board gratuito para tracking
 - **Jira**: Para ambientes profissionais
 - **GitHub Issues**: Para projetos open source
 
 ### Labels Sugeridas
+
 - 🔴 CRÍTICO | 🟠 ALTO | 🟡 MÉDIO | 🟢 BAIXO
 - 🔐 LOGIN | 🛍️ PRODUTOS | 🛒 CARRINHO | 💳 CHECKOUT
 - 📋 NOVO | 👀 EM ANÁLISE | 🔧 DESENVOLVIMENTO | ✅ FECHADO
@@ -124,12 +143,14 @@ Localizados em `/cypress/e2e/`:
 ## 📈 Métricas e Relatórios
 
 ### Cobertura de Testes
+
 - **Funcionalidades**: 100% cobertas
 - **Casos de uso**: 16 cenários manuais
 - **Testes E2E**: 25+ testes automatizados
 - **Testes de API**: 15+ endpoints testados
 
 ### Tipos de Teste
+
 - **Funcionais**: Login, CRUD, Fluxos
 - **Usabilidade**: Interface, Responsividade
 - **Performance**: Tempo de resposta
@@ -156,24 +177,29 @@ node server.js          # Apenas backend
 ## 🚨 Cenários de Falha Comum
 
 ### 1. Token Expirado
+
 **Sintoma**: Redirecionamento inesperado para login
 **Solução**: Implementar refresh automático
 
 ### 2. Produto Sem Estoque
+
 **Sintoma**: Botão "Indisponível" desabilitado
 **Comportamento**: Esperado - não é bug
 
 ### 3. Carrinho Vazio no Checkout
+
 **Sintoma**: Botão checkout desabilitado
 **Comportamento**: Esperado - validação funcional
 
 ### 4. Erro de Conexão
+
 **Sintoma**: Mensagens "Erro de conexão"
 **Teste**: Desconectar internet e tentar operações
 
 ## 📝 Próximos Passos
 
 ### Melhorias Sugeridas
+
 1. **Persistência real**: Migrar para PostgreSQL
 2. **Autenticação avançada**: OAuth, 2FA
 3. **Relatórios**: Dashboard de vendas
@@ -182,6 +208,7 @@ node server.js          # Apenas backend
 6. **CI/CD**: GitHub Actions
 
 ### Testes Adicionais
+
 1. **Acessibilidade**: WCAG compliance
 2. **Cross-browser**: Safari, Firefox
 3. **Mobile**: Testes em dispositivos
@@ -191,6 +218,7 @@ node server.js          # Apenas backend
 ## 🤝 Contribuição
 
 Para contribuir com o projeto:
+
 1. Fork o repositório
 2. Crie uma branch para sua feature
 3. Execute os testes
@@ -200,6 +228,7 @@ Para contribuir com o projeto:
 ## 📞 Suporte
 
 Para dúvidas ou problemas:
+
 - Abra uma issue no GitHub
 - Verifique os logs do console
 - Execute os testes para validar o ambiente
