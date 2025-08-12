@@ -69,10 +69,11 @@ describe("🛒 Testes de Carrinho", () => {
     cy.addToCart("Notebook Dell");
     cy.addToCart("Mouse Logitech");
 
-    // Remover todos
-    cy.get(".remove-item").each(($btn) => {
-      cy.wrap($btn).click();
-    });
+    // Remover primeiro produto
+    cy.get(".remove-item").first().click();
+
+    // Remover segundo produto (aguardar DOM atualizar)
+    cy.get(".remove-item").first().click();
 
     // Verificar carrinho vazio
     cy.checkCartCount("0");
@@ -105,6 +106,9 @@ describe("🛒 Testes de Carrinho", () => {
   });
 
   it("Deve restaurar carrinho do localStorage", () => {
+    // Primeiro fazer logout para limpar estado
+    cy.logout();
+
     // Simular carrinho no localStorage
     cy.window().then((win) => {
       const cart = [
@@ -114,8 +118,7 @@ describe("🛒 Testes de Carrinho", () => {
       win.localStorage.setItem("cart", JSON.stringify(cart));
     });
 
-    // Recarregar página
-    cy.reload();
+    // Fazer login novamente
     cy.login();
 
     // Verificar se carrinho foi restaurado

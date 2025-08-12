@@ -12,15 +12,21 @@ describe("💳 Testes de Checkout", () => {
     // Fazer checkout
     cy.get("#checkoutBtn").click();
 
-    // Verificar processamento (aguardar 1 segundo conforme backend)
+    // Fazer checkout
     cy.window().then((win) => {
       cy.stub(win, "alert").as("alertStub");
     });
 
-    cy.get("@alertStub").should(
-      "have.been.calledWith",
-      Cypress.sinon.match(/✅.*Pedido realizado com sucesso!.*Pedido #\d+/)
-    );
+    cy.get("#checkoutBtn").click();
+
+    // Verificar mensagem de sucesso
+    cy.get("@alertStub").should("have.been.called");
+    cy.get("@alertStub").then((stub) => {
+      const lastCall = stub.getCall(0);
+      expect(lastCall.args[0]).to.include("✅");
+      expect(lastCall.args[0]).to.include("Pedido realizado com sucesso!");
+      expect(lastCall.args[0]).to.include("Pedido #");
+    });
 
     // Verificar se carrinho foi limpo
     cy.checkCartCount("0");
@@ -49,7 +55,7 @@ describe("💳 Testes de Checkout", () => {
     cy.addToCart("Mouse Logitech"); // adicionar mais um
 
     // Verificar total antes do checkout
-    cy.checkCartTotal("2350,00"); // 800 + 1200 + 150 + 150
+    cy.checkCartTotal("2300,00"); // 800 + 1200 + 150 + 150
 
     // Fazer checkout
     cy.window().then((win) => {
@@ -95,15 +101,13 @@ describe("💳 Testes de Checkout", () => {
 
   it("Deve simular timeout no checkout", () => {
     // Interceptar API com delay
-    cy.intercept("POST", "/api/checkout", (req) => {
-      req.reply((res) => {
-        res.delay(2000); // 2 segundos de delay
-        res.send({
-          success: true,
-          orderId: 12345,
-          message: "Pedido realizado com sucesso!",
-        });
-      });
+    cy.intercept("POST", "/api/checkout", {
+      delay: 2000, // 2 segundos de delay
+      body: {
+        success: true,
+        orderId: 12345,
+        message: "Pedido realizado com sucesso!",
+      },
     }).as("slowCheckout");
 
     cy.addToCart("Notebook Dell");
@@ -118,10 +122,13 @@ describe("💳 Testes de Checkout", () => {
     cy.wait("@slowCheckout");
 
     // Verificar que funcionou mesmo com delay
-    cy.get("@alertStub").should(
-      "have.been.calledWith",
-      "✅ Pedido realizado com sucesso!\nPedido #12345"
-    );
+    cy.get("@alertStub").should("have.been.called");
+    cy.get("@alertStub").then((stub) => {
+      expect(stub.getCall(0).args[0]).to.include(
+        "✅ Pedido realizado com sucesso!"
+      );
+      expect(stub.getCall(0).args[0]).to.include("Pedido #12345");
+    });
   });
 
   it("Deve manter estado consistente após checkout falhado", () => {

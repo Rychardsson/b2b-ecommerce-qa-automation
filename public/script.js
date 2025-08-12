@@ -214,7 +214,7 @@ class B2BEcommerce {
     );
 
     cartCount.textContent = totalItems;
-    cartTotal.textContent = totalPrice.toFixed(2);
+    cartTotal.textContent = totalPrice.toFixed(2).replace(".", ",");
 
     cartItems.innerHTML = "";
 
@@ -228,7 +228,9 @@ class B2BEcommerce {
         cartItem.className = "cart-item";
         cartItem.innerHTML = `
                     <span>${item.name} (${item.quantity}x)</span>
-                    <span>R$ ${(item.price * item.quantity).toFixed(2)}</span>
+                    <span>R$ ${(item.price * item.quantity)
+                      .toFixed(2)
+                      .replace(".", ",")}</span>
                     <button class="remove-item" data-product-id="${
                       item.id
                     }">Remover</button>
